@@ -1,0 +1,19 @@
+{
+	"name": "柔灵android插件",
+	"id": "sn-flexolink",
+	"version": "1.0.1",
+	"description": "开发柔灵SDK",
+	"_dp_type":"nativeplugin",
+	"_dp_nativeplugin":{
+		"android":{
+			"integrateType":"aar",
+			"plugins":[
+				{
+				  "type": "module",
+				  "name": "sn-flexolink",
+				  "class": "com.flexolink.snplugin_flexolink.FlexoLinkSDK"
+				}
+			]
+		}
+	}
+}
