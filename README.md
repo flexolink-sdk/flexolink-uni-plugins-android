@@ -31,3 +31,4 @@ flexolinkInit(){
   });
 }
 ```
+#### 4、其他SDK接口请看demo
