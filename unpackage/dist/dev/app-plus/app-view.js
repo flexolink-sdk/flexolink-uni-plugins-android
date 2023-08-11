@@ -345,7 +345,7 @@ var render = function () {
             },
           },
         },
-        [_vm._v("停止扫描")]
+        [_vm._v("开始记录")]
       ),
       _c(
         "v-uni-button",
@@ -357,21 +357,45 @@ var render = function () {
             },
           },
         },
+        [_vm._v("结束记录")]
+      ),
+      _c(
+        "v-uni-button",
+        {
+          attrs: { type: "default", _i: 9 },
+          on: {
+            click: function ($event) {
+              return _vm.$handleViewEvent($event)
+            },
+          },
+        },
+        [_vm._v("停止扫描")]
+      ),
+      _c(
+        "v-uni-button",
+        {
+          attrs: { type: "default", _i: 10 },
+          on: {
+            click: function ($event) {
+              return _vm.$handleViewEvent($event)
+            },
+          },
+        },
         [_vm._v("开始数据质量检测")]
       ),
       _c(
         "uni-section",
-        { attrs: { _i: 9 } },
+        { attrs: { _i: 11 } },
         [
           _c("uni-data-select", {
-            attrs: { _i: 10 },
+            attrs: { _i: 12 },
             on: {
               change: function ($event) {
                 return _vm.$handleViewEvent($event)
               },
             },
             model: {
-              value: _vm._$g(10, "v-model"),
+              value: _vm._$g(12, "v-model"),
               callback: function () {},
               expression: "value",
             },
@@ -381,91 +405,109 @@ var render = function () {
       ),
       _c(
         "uni-view",
-        { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
+        { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
         [
           _c(
             "v-uni-text",
-            { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
+            { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
             [_vm._v("电量：")]
           ),
           _c(
             "v-uni-text",
-            { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
-            [_vm._v(_vm._$g(13, "t0-0"))]
+            { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+            [_vm._v(_vm._$g(15, "t0-0"))]
           ),
-          _c("br", { attrs: { _i: 14 } }),
+          _c("br", { attrs: { _i: 16 } }),
         ],
         1
       ),
       _c(
         "uni-view",
-        { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+        { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
         [
           _c(
             "v-uni-text",
-            { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
+            { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
             [_vm._v("版本：")]
           ),
           _c(
             "v-uni-text",
-            { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
-            [_vm._v(_vm._$g(17, "t0-0"))]
+            { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
+            [_vm._v(_vm._$g(19, "t0-0"))]
           ),
-          _c("br", { attrs: { _i: 18 } }),
+          _c("br", { attrs: { _i: 20 } }),
         ],
         1
       ),
       _c(
         "uni-view",
-        { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
+        { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
         [
           _c(
             "v-uni-text",
-            { staticClass: _vm._$g(20, "sc"), attrs: { _i: 20 } },
+            { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } },
             [_vm._v("信号：")]
           ),
           _c(
             "v-uni-text",
-            { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
-            [_vm._v(_vm._$g(21, "t0-0"))]
+            { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
+            [_vm._v(_vm._$g(23, "t0-0"))]
           ),
-          _c("br", { attrs: { _i: 22 } }),
+          _c("br", { attrs: { _i: 24 } }),
         ],
         1
       ),
       _c(
         "uni-view",
-        { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
+        { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
         [
           _c(
             "v-uni-text",
-            { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
+            { staticClass: _vm._$g(26, "sc"), attrs: { _i: 26 } },
             [_vm._v("是否佩戴：")]
           ),
           _c(
             "v-uni-text",
-            { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
-            [_vm._v(_vm._$g(25, "t0-0"))]
+            { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
+            [_vm._v(_vm._$g(27, "t0-0"))]
           ),
-          _c("br", { attrs: { _i: 26 } }),
+          _c("br", { attrs: { _i: 28 } }),
         ],
         1
       ),
       _c(
         "uni-view",
-        { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
+        { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
         [
           _c(
             "v-uni-text",
-            { staticClass: _vm._$g(28, "sc"), attrs: { _i: 28 } },
+            { staticClass: _vm._$g(30, "sc"), attrs: { _i: 30 } },
             [_vm._v("连接状态：")]
           ),
           _c(
             "v-uni-text",
-            { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
-            [_vm._v(_vm._$g(29, "t0-0"))]
+            { staticClass: _vm._$g(31, "sc"), attrs: { _i: 31 } },
+            [_vm._v(_vm._$g(31, "t0-0"))]
           ),
-          _c("br", { attrs: { _i: 30 } }),
+          _c("br", { attrs: { _i: 32 } }),
+        ],
+        1
+      ),
+      _c(
+        "uni-view",
+        { staticClass: _vm._$g(33, "sc"), attrs: { _i: 33 } },
+        [
+          _c(
+            "v-uni-text",
+            { staticClass: _vm._$g(34, "sc"), attrs: { _i: 34 } },
+            [_vm._v("记录状态：")]
+          ),
+          _c(
+            "v-uni-text",
+            { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
+            [_vm._v(_vm._$g(35, "t0-0"))]
+          ),
+          _c("br", { attrs: { _i: 36 } }),
         ],
         1
       ),

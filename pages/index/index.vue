@@ -7,6 +7,8 @@
 		<button type="default" @click="flexolinkScan">扫描设备</button>
 		<button type="default" @click="flexolinkConnect">连接设备</button>
 		<button type="default" @click="flexolinkDisconnect">断开设备</button>
+		<button type="default" @click="flexolinkStartRecord">开始记录</button>
+		<button type="default" @click="flexolinkStopRecord">结束记录</button>
 		<button type="default" @click="flexolinkStopScan">停止扫描</button>
 		<button type="default" @click="flexolinkRelease"释放SDK</button>
 		<button type="default" @click="flexolinkSignalDetect">开始数据质量检测</button>
@@ -31,6 +33,9 @@
 		</view>
 		<view class="text-area">
 			<text class="title">连接状态：</text><text class="title">{{connectStatus}}</text><br>
+		</view>
+		<view class="text-area">
+			<text class="title">记录状态：</text><text class="title">{{recordStatus}}</text><br>
 		</view>
 	</view>
 </template>
@@ -71,12 +76,14 @@
 			flexolinkScan(){
 				const testModule = uni.requireNativePlugin('sn-flexolink');
 				const result = testModule.scanDevice(e => {
-					const name = e.data.bleName;
-					const mac = e.data.bleMac;
-					this.range.push({
-					      value: name,
-					      text: name 
-					    })
+					if(e.code == 0){
+						const name = e.data.bleName;
+						const mac = e.data.bleMac;
+						this.range.push({
+						      value: name,
+						      text: name 
+						    })
+					}
 				});
 			},
 			flexolinkConnect() {
@@ -126,7 +133,7 @@
 								this.isWear = "未佩戴";
 							}
 						}
-						//获取佩戴情况
+						//获取设备连接情况
 						const connectResult = testModule.getConnectStatus();
 						if(connectResult.code == 0){
 							if(connectResult.data.connectStatus){
@@ -181,6 +188,40 @@
 			flexolinkRelease() {
 				const testModule = uni.requireNativePlugin('sn-flexolink');
 				testModule.release();
+			}
+			,
+			flexolinkStartRecord() {
+				const testModule = uni.requireNativePlugin('sn-flexolink');
+				testModule.startRecord({
+					edfPath : "/sdcard/Android/data/uni.UNI024BC02/files/123.edf", //具体路径根据平台自行选择，Android一般选择应用沙箱路径
+					userName : "张三",
+					userBirthday : "2000-01-01",
+					userSex : 1
+				},e => {
+					if(e.code == 0){
+						if(e.msg == "onStartRecord"){ //记录开始
+							var edfPath = e.data.edfPath;
+							this.recordStatus = "开始记录";
+						}else if(e.msg == "onRecording"){
+							//每5秒回调一次，表示正在记录中，可实时更新记录时间
+							this.recordStatus = "正在记录中";
+						}else if(e.msg == "onAutoStopRecord"){
+							//记录自动结束
+						}else if(e.msg == "onStopRecord"){
+							this.recordStatus = "结束记录";
+							//记录结束
+						}else if(e.msg == "onRecordFailure"){
+							//记录失败, msg为记录失败原因
+							var msg = e.data.failureMsg;
+							this.recordStatus = "记录失败 ： " + msg;
+						}
+					}
+			
+			  });
+			},
+			flexolinkStopRecord() {
+				const testModule = uni.requireNativePlugin('sn-flexolink');
+				testModule.stopRecord();
 			}
 		}
 	}
