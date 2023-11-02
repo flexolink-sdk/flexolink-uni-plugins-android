@@ -57,8 +57,8 @@
 			flexolinkInit(){
 				const testModule = uni.requireNativePlugin('sn-flexolink');
 				testModule.init({
-					apiKey:"rla9ccbea81fa9",
-					apiSecret:"e6599d04cc09e75d3c975352f12588bc"
+					apiKey:"联系客服",
+					apiSecret:"联系客服"
 				}, e => {
 					if(e.code == 0){
 						uni.showToast({
